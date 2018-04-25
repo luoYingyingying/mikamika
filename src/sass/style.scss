@@ -1,0 +1,227 @@
+/*默认样式和可重复利用的头部和尾部*/
+
+html,body,ul,li,span,div,img,p,dl,dd,dt,a,h1,h2,h3,h4,h5,h6{margin:0;padding:0;}
+a{text-decoration: none;}
+ul, ol, li {
+    list-style-type: none;
+}
+img {
+    border: 0 none;
+    vertical-align: middle;
+}
+
+/*头部*/ 
+.maxHeadw {
+    width: 100%;
+    z-index: 99;
+    position: relative;
+    border-bottom: 1px solid black;
+    border-color:#ddd;
+    background: #fff;
+   .maxHead {
+        width: 1150px;
+        margin: 0 auto;
+        color: #999;
+        height: 30px;
+        line-height: 30px;
+        position: relative;
+        text-align: right;
+        
+        .ie-bug{
+            width:220px;
+            height:32px;
+            border-left:1px solid black; 
+            border-right:1px solid black; 
+            border-color:#ddd;
+            float:left;
+            text-align:center;
+            background:#fff;
+            .loginLink,.registLink{
+                color:red;
+                margin-left:2px;
+                margin-right:2px;
+            }
+            
+        }
+
+        .hea{
+            width:566px;
+            height:30px;
+            list-style:none;
+            float:right;
+            li{
+                float:left;
+                a{
+                    color:#999999;
+                    padding:0 8px 0 12px;
+                    border-left:1px solid #ddd;
+
+                }
+                .item-1{
+                        border:0;
+                    }
+            }
+        }
+    }
+    
+}
+
+ /*logo行*/
+.maxTopw {
+    position: relative;
+    z-index: 1003;
+    height: 99px;
+    width: 100%;
+    background: #fff;
+    .maxTop {
+        position: relative;
+        height: 99px;
+        width: 1150px;
+        margin: 0px auto;
+        overflow: hidden;
+        .maxLogo {
+            height: 99px;
+            line-height: 99px;
+            overflow: hidden;
+            float: left;
+            a{
+                cursor:pointer;
+                width:334px;
+                height: 73px;
+            }
+        }
+    }
+    .maxQR-code {
+        float: left;
+        margin: 19px 0 0 33px;
+    }
+    .maxTop-right {
+        float: right;
+        margin-top: 40px;
+        position: relative;
+        width: 445px;
+       .maxhome {
+            float: left;
+            padding-right: 95px;
+            span{
+                color: #dc4f45;
+                font-family: microsoft yahei;
+                line-height: 42px;
+            }
+        }
+        .maxCart {
+            float: right;
+            dl{
+                display:bolck;
+                dt {
+                    overflow: hidden;
+                    padding-left: 36px;
+                    background: url(http://micamika-images.s3.mall.ekaidian.com/themes/1450851930/images/main.png?) no-repeat 0 -29px;
+                    li {
+                        float: left;
+                        font: 18px/40px microsoft yahei;
+                        color: #dc4f45;
+                        padding-right: 5px;
+                        span{
+                            color:#dc4f45;
+                        }
+                        em {
+                            font-style: normal;
+                        }
+                    }
+                }
+            }
+        }   
+    }
+
+}
+
+/*footer*/
+.link{
+    width: 100%;
+    background-color: #f8f8f8;
+    clear: both;
+    .help{
+        width: 1150px;
+        margin: 0 auto;
+        overflow: hidden;
+        position: relative;
+        padding-bottom: 50px;
+        .left{
+            text-align: right;
+            float: left;
+            width: 700px;
+            .left_1{
+                float: left;
+                min-width: 170px;
+                min-height: 200px;
+                padding: 15px 15px 0 0;
+                border-right: 1px solid #666;
+               
+                p{
+                    line-height: 20px;
+                     color:#666;
+                }
+                .p1{
+                    margin-bottom: 24px
+                }
+                .p2{
+                   a{
+                     color:#666;
+                   }
+                }
+            }
+            .left_2{
+                float: left;
+                min-width: 170px;
+                min-height: 200px;
+                padding: 15px 15px 0 0;
+                border-right: 1px solid #666;
+               
+                p{
+                    line-height: 20px;
+                     color:#666;
+                }
+                .p1{
+                    margin-bottom: 24px
+                }
+                .p2{
+                   a{
+                     color:#666;
+                   }
+                }
+            }
+             .left_3{
+                float: left;
+                min-width: 170px;
+                min-height: 200px;
+                padding: 15px 15px 0 0;
+                border-right: 1px solid #666;
+               
+                p{
+                    line-height: 20px;
+                     color:#666;
+                }
+                .p1{
+                    margin-bottom: 24px
+                }
+                .p2{
+                   a{
+                     color:#666;
+                   }
+                }
+            }
+
+        }
+        .right{
+            width: 415px;
+            float: right;
+            padding-top: 15px;
+             img{
+                width: 116px;
+                height: 116px;
+                margin-top:13px;
+             }
+        }
+    }
+}

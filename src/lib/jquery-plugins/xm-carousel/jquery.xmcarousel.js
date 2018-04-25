@@ -1,147 +1,127 @@
+/*
+ * 轮播图插件
+ */
 ;
 (function($){
-	function Carousel({imgs, width, height, duration, isAutoPlay, showPrevNext, showCircle}) {
-		this.imgs = imgs; // 保存需要轮播切换图片的数组{src, href}
-		this.width = width; // 轮播图容器宽度
-		this.height = height; // 轮播图容器高度
-		this.lis = null; // 轮播图片的 LI 盒子
-		this.circles = null; // 小圆点盒子
+	function Carousel({imgs, width, height,duration}) {
+		this.imgs = imgs; // 待轮播图片的数组，数组元素是对象，包括图片路径与链接地址的属性
+		this.width = width; // 轮播图宽度
+		this.height = height; // 轮播图高度
+		this.duration = duration; // 轮播切换时间间隔
 		this.currentIndex = 0; // 当前显示图片的索引
 		this.nextIndex = 1; // 即将显示图片的索引
-		this.timer = null; // 自动轮播切换的计时器id
-		this.duration = duration || 3000; // 轮播切换时间间隔
-		this.container = null;
-		this.isAutoPlay = typeof isAutoPlay === "boolean" ? isAutoPlay : true;
-		this.showPrevNext = showPrevNext;
-		this.showCircle = showCircle;
+		this.allImgs = null; // 所有待轮播的图片盒子
+		this.circles = null; // 所有小圆点
+		this.prev = null; // 向上
+		this.next = null; // 向下
+		this.timer = null; // 轮播计时器
+		this.container = null; // 轮播图最外层容器
 	}
 
 	Carousel.prototype = {
 		constructor : Carousel,
-		init : function(container){ // 初始化，动态创建轮播图布局结构
-			// 动态生成的li、小圆点、向前/后 的HTML字符串
-			let lis = "", circles = "", prevNext = "";
-			this.imgs.forEach(function(img){
-				lis += `<li><a href="${img.href}"><img src="${img.src}"></a></li>`;
-				circles += `<i></i>`;
-			});
-			if (this.showCircle) // 是否显示小圆点
-				circles = `<div class="pages">
-							 ${circles}
-						   </div>`;
-			if (this.showPrevNext) // 是否显示向前/后按钮
-				prevNext = `<div class="prev">&lt;</div>
-							<div class="next">&gt;</div>`;
-
-			// 布局结构
-			let html = `<ul>
-							${lis}
-						</ul>
-						${circles}
-						${prevNext}`;
-			// 将布局结构添加到容器中
-			$(container).html(html);
-			// css样式设置
-			$(container).addClass("xm-container")
-						.css({
-							width: this.width,
-							height: this.height
-						})
-						.find("img").css({
-							width: this.width,
-							height: this.height
-						});
-			// 获取所有的轮播图片li盒子与小圆点的盒子
-			this.lis = $("li", $(container));
-			this.circles = $("i", $(container));
-			// 第一个
-			this.lis.eq(0).show();
-			if (this.showCircle)
-				this.circles.eq(0).addClass("current");
-			// 设置所使用到的容器属性
-			this.container = $(container);
-			// 注册事件监听
-			this.registerEventListener();
-		},
-		autoPlay : function(){ // 自动轮播
-			if (this.isAutoPlay) { // 是否自动轮播
-				this.timer = setInterval(()=>{
-					this.move();
-				}, this.duration);
+		init : function(container) { // 初始化，动态生成布局结构
+			this.container = container;
+			let content = `
+				<!-- 图片 -->
+				<ul class="imgs"></ul>
+				<!-- 小圆点 -->
+				<div class="pages"></div>
+				<!-- 向前/后 -->
+				<div class="prev">&lt;</div>
+				<div class="next">&gt;</div>`;
+			// 将布局框架结构加入容器中
+			$(container).addClass("xmcarousel").html(content);
+			/* 动态添加图片与小圆点的布局 */
+			let liHtml = "", iHtml = "";
+			for (let i = 0, len = this.imgs.length; i < len; i++) {
+				liHtml += `<li><a href="${this.imgs[i].href}"><img src="${this.imgs[i].src}"></a></li>`;
+				iHtml += "<i></i>";
 			}
-		},
-		move : function(){
-			// 当前正显示图片淡出
-			this.lis.eq(this.currentIndex).stop().fadeOut(200);
-			// 即将显示图片淡入
-			this.lis.eq(this.nextIndex).stop().fadeIn(200);
+			$(".imgs", container).html(liHtml); // 将li添加到ul中
+			$(".pages", container).html(iHtml); // 将 i 添加到 div.pages 中
+			// 动态设置布局盒子大小
+			$(".imgs, .imgs li", container).css({
+				width : this.width,
+				height : this.height
+			});
+			$(".pages", container).css("width", this.width);
+			$(container).css("width", this.width);
+			// 显示第一张图片
+			$(".imgs li:first", container).show();
+			$(".pages i:first", container).addClass("current");
+			// 找出所有轮播图片、小圆点
+			this.allImgs = $(".imgs li", container);
+			this.circles = $(".pages i", container);
+			this.prev = $(".prev", container);
+			this.next = $(".next", container);
 
-			// 修改小圆点样式
+			// 注册事件监听
+			this.register();
+		},
+		move : function(){ // 轮播切换图片
+			// 当前显示淡出，即将显示淡入
+			this.allImgs.eq(this.currentIndex).fadeOut();
+			this.allImgs.eq(this.nextIndex).fadeIn();
+			// 小圆点样式变换
 			this.circles.eq(this.currentIndex).removeClass("current");
 			this.circles.eq(this.nextIndex).addClass("current");
-
-			// 修改索引值
+			// 修改索引
 			this.currentIndex = this.nextIndex;
 			this.nextIndex++;
-			if (this.nextIndex >= this.lis.length)
+			if (this.nextIndex >= this.imgs.length)
 				this.nextIndex = 0;
 		},
-		enter : function(){
-			clearInterval(this.timer);
+		autoPlay : function(){
+			this.timer = setInterval(()=>{
+				this.move();
+			}, this.duration);
 		},
-		leave : function(){
-			this.autoPlay();
-		},
-		over : function(elem){
-			// 获取当前elem小圆点在其兄弟元素中的索引
-			let _index = $(elem).index();
-			if (_index === this.currentIndex)
-				return;
-			this.nextIndex = _index;
-			this.move();				
-		},
-		prev : function(){
-			this.nextIndex = this.currentIndex - 1;
-			if (this.nextIndex < 0)
-				this.nextIndex = this.lis.length - 1;
-			this.move();
-		},
-		registerEventListener : function(){
-			// 在轮播容器中鼠标移入、移出
+		register : function(){
+			/* 鼠标移入移出容器，停止/重启自动轮播 */
 			this.container.hover(()=>{
-				this.enter();
+				clearInterval(this.timer);
 			}, ()=>{
-				this.leave();
+				this.autoPlay();
 			});
-			// 小圆点移入事件
-			let that = this;
-			$(".pages", this.container).on("mouseover", "i", function(){
-				that.over(this);
+			/* 小圆点移入 */
+			let _this = this;
+			this.circles.mouseover(function(){
+				// 获取当前移入小圆点在所有兄弟元素中的索引
+				let index = $(this).index();
+				if (_this.currentIndex === index)
+					return;
+				_this.nextIndex = index;
+				_this.move();
 			});
-			// 向前/后翻页
-			$(".prev", this.container).click(()=>{
-				this.prev();
+			/* 向上、下翻页 */
+			this.prev.click(()=>{
+				this.nextIndex = this.currentIndex - 1;
+				if (this.nextIndex < 0)
+					this.nextIndex = this.imgs.length - 1;
+				this.move();
 			});
-			$(".next", this.container).click(()=>{
+			this.next.click(()=>{
 				this.move();
 			});
 		}
 	};
 
-	$.fn.carousel = function(options){
+	// 扩展 $.fn (即 jQuery.prototype)
+	/*$.fn.extend({
+		carousel : function({imgs, width, height,duration}){
+			this.each(function(){
+				let c = new Carousel({imgs, width, height,duration})
+				c.init($(this));
+				c.autoPlay();
+			});
+		}
+	});*/
+	$.fn.carousel = function({imgs, width, height,duration}){
 		this.each(function(){
-			let c = new Carousel(options);
-			c.init(this);
+			let c = new Carousel({imgs, width, height,duration})
+			c.init($(this));
 			c.autoPlay();
 		});
-	};
-
-
-	// $.prototype.carousel = function(){}
-	/*$.fn.extend({
-		carousel : function(){}
-	});*/
-
-	// $.fn.extend() -- 为 jQuery 对象的实例添加扩展功能
-	// $.extend() -- 为 jQuery 函数对象本身扩展功能
+	}
 })(jQuery);
