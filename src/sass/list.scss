@@ -1,0 +1,147 @@
+// 详情页面
+
+
+/* 主体内容*/
+	.zhuti{
+		.box_1{
+			width: 1155px;
+			height: 2890px;
+			margin:0 auto;
+			margin-top:67px;
+			.left{
+				width: 941px;
+				height: 2864px;
+				float:left;
+				.top{
+					height: 128px;
+					background: #e2e5e9;
+					p{
+						font-size:12px;
+						color:#666;
+						margin-left:18px;
+						height:41px;
+						line-height: 41px;
+					}
+					ul{
+						width:941px;
+						height:39px;
+						border-bottom:1px solid #ccc;
+						li{
+							float:left;
+							height:39px;
+							line-height: 39px;
+							margin-right:25px;
+							a{
+								display:bolck;
+								font-size:12px;
+								color:#666;
+								text-align: center;
+								&:hover{
+									color:red;
+								}
+							}
+
+						}
+						.li_1{
+							margin-left:9px;
+						}
+					}
+				}
+				.bottom{
+					height: 2739px;
+					padding-left:43px;
+					padding-top:13px;
+					box-sizing:border-box;
+					dl{
+						width: 228px;
+						height: 369px;
+						border:1px solid;
+						float:left;
+						margin-right:80px;
+						margin-bottom:10px;
+						&:nth-child(3n){
+							margin-right:0;
+						};
+						&:hover{
+							color:red;
+							border:1px solid;
+						};
+						dt{
+							img{
+								padding:15px;
+								box-sizing: border-box;
+								display: block;
+							} 
+						}
+						dd{
+							p{
+								font-size: 14px;
+								color:#ccc;
+								margin-left:6px;
+							}
+							.p1{
+								font-size: 14px;
+								color:red;
+								height:83px;
+								line-height: 83px;
+								font-weight: bold;
+							}
+						}
+						
+					}
+				}
+			}
+			.right{
+				width: 186px;
+				height: 774px;
+				float:right;
+				border-left:1px solid #e2e5e9;
+				.top_2{
+					height: 35px;
+					background: #e2e5e9;
+					p{
+						color:#666;
+						font-size: 16px;
+						height: 35px;
+						line-height: 35px;
+						text-align: center;
+					}
+				}
+				.bottom_2{
+					height: 731px;
+					dl{
+						width: 179px;
+						height: 245px;
+						border-bottom:1px solid #e2e5e9;
+						dt{
+							img{
+								width: 150px;
+								height: 150px;
+								display: block;
+								padding-left:6px;
+								padding-top:5px;
+								box-sizing: border-box;
+							} 
+						}
+						dd{
+							p{
+								font-size: 14px;
+								color:#ccc;
+								margin-left:6px;
+							}
+							.p1{
+								font-size: 14px;
+								color:red;
+								font-weight: bold;
+								margin-top:8px;
+							}
+						}
+						
+					}
+				}
+			}
+		}
+		.clear{
+			clear:both;
+		}
+	}

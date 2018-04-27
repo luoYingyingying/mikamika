@@ -1,0 +1,13 @@
+{
+	"res_code":"0",
+	"res_error":"",
+	"res_body":{
+		"products":[
+			{"pid":2, "title":"百利甜之恋 Bailey Love", "price":378, "img":"/images/dangao2.jpg"},
+			{"pid":3, "title":"太子 Prince", "price":378, "img":"/images/dangao3.jpg"},
+			{"pid":4, "title":"喂！萝卜  Hey！Carrot", "price":378, "img":"/images/dangao4.jpg"}
+			
+		
+		]
+	}
+}

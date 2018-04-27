@@ -36,5 +36,6 @@ require(["config"], function(){
 		
 		
 	});
+
 });
 

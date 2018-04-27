@@ -1,0 +1,22 @@
+{
+	"res_code":"0",
+	"res_error":"",
+	"res_body":{
+		"products":[
+			{"pid":2, "title":"百利甜之恋 Bailey Love", "price":378, "img":"/images/dangao2.jpg"},
+			{"pid":3, "title":"太子 Prince", "price":378, "img":"/images/dangao3.jpg"},
+			{"pid":4, "title":"喂！萝卜  Hey！Carrot", "price":378, "img":"/images/dangao4.jpg"},
+			{"pid":5, "title":"请叫我奔放的小野马 Little Wild Horse", "price":378, "img":"/images/dangao5.jpg"},
+			{"pid":6, "title":"【金牛座】牧小牛 Pastoral calf", "price":378, "img":"/images/dangao6.jpg"},
+			{"pid":7, "title":"百利甜之恋 Bailey Love", "price":378, "img":"/images/dangao2.jpg"},
+			{"pid":8, "title":"太子 Prince", "price":378, "img":"/images/dangao3.jpg"},
+			{"pid":9, "title":"喂！萝卜  Hey！Carrot", "price":378, "img":"/images/dangao4.jpg"},
+			{"pid":10, "title":"请叫我奔放的小野马 Little Wild Horse", "price":378, "img":"/images/dangao5.jpg"},
+			{"pid":11, "title":"【金牛座】牧小牛 Pastoral calf", "price":378, "img":"/images/dangao6.jpg"},
+			{"pid":12, "title":"百利甜之恋 Bailey Love", "price":378, "img":"/images/dangao2.jpg"},
+			{"pid":13, "title":"太子 Prince", "price":378, "img":"/images/dangao3.jpg"},
+			{"pid":14, "title":"喂！萝卜  Hey！Carrot", "price":378, "img":"/images/dangao4.jpg"},
+			{"pid":15, "title":"请叫我奔放的小野马 Little Wild Horse", "price":378, "img":"/images/dangao5.jpg"}
+		]
+	}
+}

@@ -13,115 +13,14 @@
 <body>
 	
 	<!--容器-->
-	<div id="container">
-		<!--头部-->
-		<div class="maxHeadw">
-			<div class="maxHead">
-				<span id="header-1" class="ie-bug">
- 					您好 !   请<a href="#" class="loginLink">登录</a>或
- 					<a href="Javascript:void(0);" class="registLink" >加入会员</a>
-				</span>
-				<ul class="hea">
-					<li>
-						<a href="#" class=" item-1" target="_blank">礼金卡充值</a>
-					</li>
-					<li>
+	
+		<!--头部，在header.html中复用-->
+		<div class="header"></div>
+		<!-- 注册、登录界面，在header.html中复用-->
+		<!-- 蒙版，在header.html中复用-->
 
-						<a href="#" class=" item-2" target="_blank">如何订购</a>
-					</li>
-					<li>
-						<a href="#" class=" item-3" target="_blank">配送范围</a>
 
-					</li>
-					<li>
-						<a href="#" class=" item-4" target="_blank">提前预约时间</a>
-					</li>
-					<li>
-						<a href="#" class=" item-5" target="_blank">关于米卡米卡蛋糕</a>
-					</li>
-					<li>
-						<a href="#" class=" item-6" target="_blank">网站地图</a>
-					</li>
-					<li>
-						<a href="#" class=" item-7">xml地图</a>
-					</li>
-				</ul>
-			</div>	
-		</div>
-		<div class="maxTopw">
-			<div class="maxTop">
-				<div class="maxLogo">
-					<a href="#">
-						<img alt="北京生日蛋糕预定_网上订蛋糕_下午茶预订蛋糕-米卡米卡蛋糕网" src="http://micamika-images.s3.mall.ekaidian.com/92/50/5c/70eeab7989e51282d1a26c4b16ffa85e.png?1448877988#w" border="0" />
-					</a>
-				</div>
-				<div class="maxQR-code">
-					<img src="http://micamika-images.s3.mall.ekaidian.com/1c/04/bf/7d154ab774e39df948801fad76aa94be.png?1492410817#h" alt="二维码" width="70" height="70" />
-				</div>
-				<div class="maxTop-right">
-					<div class="maxhome">
-						<div class="AdvBanner">
-							<span style="font-size:18px">订购电话：400-606-7757</span>
-						</div>
-					</div>
-					<div class="maxCart">
-						<div class="shop-cart-mini has-minicart" id="shop_cart_mini_767">
-							<dl>
-								<dt class="minicart-text">
-									<ul class="cfix">
-										<li>
-											<a href="#" class="title-str">
-												<span>购物车</span>
-											</a>
-										</li>
-										<li class="cart-number">
-											(
-											 <em class="op-cart-number">0</em>
-											 )
-										</li>
-									</ul>
-								</dt>
-							</dl>
-						</div>
-					</div>
-				</div>
-				
-			</div>
-			
-		</div>	
-
-		<!--内容主体-->
-		<div class="maxMenuw">
-			<div class="maxMenubox">
-				<div class="maxMenu">
-					<ul class="MenuList MenuList_1037 clearfix">
-						<li class>
-							<a href="#/">首页</a>
-						</li>
-						<li class="shouye">
-							<a href="#">全部蛋糕</a>
-						</li>
-						<li class>
-							<a href="#" target="_blank">下午茶19国</a>
-						</li>
-						<li >
-							<a href="#" target="_blank">企业专区</a>
-						</li>
-						<li >
-							<a href="#" target="_blank">蛋糕资讯</a>
-						</li>
-						<li>
-							<a href="#">会员中心</a>
-						</li>
-						<li >
-							<a href="#" target="_blank">关于米卡米卡</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-
-		<!--轮播图-->
+		<!--内容主体:轮播图-->
 		<div class="banner">
 			
 		</div>
@@ -196,71 +95,9 @@
 			<div class="xiongzhanghao"><div class="xiong">查看熊掌号</div></div>  
 		</div>
 
-		<!-- footer -->
-		<div class="link">
-			<div class="help">
-				<div class="left">
-					<div class="left_1">
-						<p class="p1">帮助中心</p>
-						<p class="p2"><a href="#">如何订购</a></p>
-						<p>配送范围</p>
-						<p>会员升级</p>
-						<p>支付方式</p>
-					</div>
-					<div class="left_2">
-						<p class="p1">公司简介</p>
-						<p class="p2"><a href="#">关于米卡米卡</a></p>
-						<p>品牌创始人</p>
-						<p>加入我们</p>
-						<p>最新新闻</p>
-						<p>最新新闻</p>
-						<p>最新新闻</p>
-					</div>
-					<div class="left_3">
-						<p class="p1"> 
-让我们成为朋友</p>
-						<p class="p2"><a href="#">新浪微博</a></p>
-						<p>天猫店铺</p>
-						<p>京东店铺</p>
-					</div>
-				</div>
-				<div class="right">
-					
-                嗨！~你好，听说你喜欢我们好久了，来交个朋友吧~
-                <p>扫描下方二维码</p>
-                <p>关注我们的微信公众号</p>
-                <p>微信下单有新人专享优惠券哦！</p>
-               	<img src="/images/erweima.png" />
-				</div>
-			</div>
+		<!-- 尾部在footer.html中复用-->
+		<div class="footer"></div>
 
-		</div>
-		
-	</div>
-
-	<!-- 注册、登录 -->
-
-	<div class="rg-login">
-		<div class="tHead">
-			<div class="login">登录</div>
-			<div class="register">注册</div> 
-			<div class="del">X</div>
-		</div>
-		<div class="tBody">
-			<form action="" class="register_1">
-
-				<div class="uers"><span>登录账号：</span><input type="text" placeholder="用户名/邮箱/手机号，最少4个字符" /></div><br /><span></span>
-				<div class="uers"><span>密码：</span><input type="password" placeholder="6-20个字符" /></div><br /><span></span>
-				<div class="uers"><span>确认密码：</span><input type="password" placeholder="再次填写密码" /></div><br /><span></span>
-				<input type="submit" value="提交"  class="tijiao"/>
-			</form>
-			<form action="" class="login_1">
-				<div class="uers"><span>登录账号：</span><input type="text" placeholder="用户名/邮箱/手机号，最少4个字符" /></div><br /><span></span>
-				<div class="uers"><span>密码：</span><input type="password" placeholder="6-20个字符" /></div><br /><span></span>
-				<input type="submit" value="登录"  class="denglu"/>
-			</form>
-		</div>
-	</div>
-	<div class="mengban"></div>
+	
 </body>
 </html>
